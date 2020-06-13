@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "workspaces": [
+    "gatsby-theme-positibe-api",
+    "gatsby-theme-positibe-mui",
+    "site"
+  ]
+}
