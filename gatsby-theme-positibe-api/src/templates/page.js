@@ -37,8 +37,16 @@ export const query = graphql`
                     video
                     media {
                       id
-                      imagePublicUrl
                       originalName
+                      publicUrl
+                      publicUrlSharp {
+                        base
+                        childImageSharp {
+                          fluid (maxWidth: 1900) {
+                            ...GatsbyImageSharpFluid
+                          }
+                        }
+                      }
                     }
                     gallery {
                       id
@@ -46,8 +54,18 @@ export const query = graphql`
                         edges {
                           node {
                             id
-                            imagePublicUrl
                             originalName
+                            publicUrl
+                            publicUrlSharp {
+                              extension
+                              relativePath
+                              absolutePath
+                              childImageSharp {
+                                fluid (maxWidth: 1900) {
+                                  ...GatsbyImageSharpFluid
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -65,8 +83,18 @@ export const query = graphql`
                           video
                           media {
                             id
-                            imagePublicUrl
                             originalName
+                            publicUrl
+                            publicUrlSharp {
+                              extension
+                              relativePath
+                              absolutePath
+                              childImageSharp {
+                                fluid (maxWidth: 1900) {
+                                  ...GatsbyImageSharpFluid
+                                }
+                              }
+                            }
                           }
                           gallery {
                             id
@@ -74,8 +102,18 @@ export const query = graphql`
                               edges {
                                 node {
                                   id
-                                  imagePublicUrl
                                   originalName
+                                  publicUrl
+                                  publicUrlSharp {
+                                    extension
+                                    relativePath
+                                    absolutePath
+                                    childImageSharp {
+                                      fluid (maxWidth: 1900) {
+                                        ...GatsbyImageSharpFluid
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }

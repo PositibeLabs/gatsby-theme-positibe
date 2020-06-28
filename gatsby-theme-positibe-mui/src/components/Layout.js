@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import {MuiThemeProvider} from '@material-ui/core/styles'
-import theme from '../theme'
+import theme from '../theme/theme'
 import Footer from "./Footer";
 
 const Layout = ({children, className}) => {

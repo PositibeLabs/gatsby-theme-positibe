@@ -5,6 +5,7 @@ require("dotenv").config({
 
 module.exports = {
   plugins: [
+    'gatsby-plugin-preload-link-crossorigin',
     {
       resolve: 'gatsby-source-graphql',
       options: {
@@ -22,5 +23,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ]
 }
