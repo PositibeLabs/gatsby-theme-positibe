@@ -148,10 +148,10 @@ exports.createPages = async ({graphql, actions}) => {
 }
 
 function getComponent(node) {
-  const path = `./src/templates/${node.template !== null ? node.template : 'page'}.js`
-  const file = path.resolve(path)
+  const templatePath = `./src/templates/${node.template !== null ? node.template : 'page'}.js`
+  const file = path.resolve(templatePath)
   if (!fs.existsSync(file)) {
-    return require.resolve(path)
+    return require.resolve(templatePath)
   }
 
   return file
