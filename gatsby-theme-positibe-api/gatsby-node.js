@@ -1,9 +1,9 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
-const fsExtra = require('fs-extra');
-const path = require('path');
-// const fs = require("fs")
+const fsExtra = require('fs-extra')
+const fs = require('fs')
+const path = require('path')
 
 const {createRemoteFileNode} = require(`gatsby-source-filesystem`)
 
@@ -139,7 +139,7 @@ exports.createPages = async ({graphql, actions}) => {
   application.pages.edges.forEach(({node}) => {
     createPage({
       path: node.permalink,
-      component: require.resolve(`./src/templates/${node.template !== null ? node.template : 'page'}.js`),
+      component: getComponent(node),
       context: {
         id: node.id,
       },
@@ -147,3 +147,12 @@ exports.createPages = async ({graphql, actions}) => {
   })
 }
 
+function getComponent(node) {
+  const path = `./src/templates/${node.template !== null ? node.template : 'page'}.js`
+  const file = path.resolve(path)
+  if (!fs.existsSync(file)) {
+    return require.resolve(path)
+  }
+
+  return file
+}
